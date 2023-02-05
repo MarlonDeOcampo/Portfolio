@@ -10,10 +10,6 @@
   box-shadow: inset 7px 0 9px -7px #27414d;
 }
 
-/* .shadow-orange {
-  text-shadow: 0 0 5px #ff652f;
-} */
-
 .shadow-orange {
   text-shadow: -1px 0 #ff652f, 0 1px #ff652f, 1px 0 #ff652f, 0 -1px #ff652f;
 }
@@ -21,6 +17,14 @@
 .shadow-yellow {
   text-shadow: -1px 0 #ffe400, 0 1px #ffe400, 1px 0 #ffe400, 0 -1px #ffe400;
 }
+
 .shadow-green {
   text-shadow: -1px 0 #00ff99, 0 1px #00ff99, 1px 0 #00ff99, 0 -1px #00ff99;
+}
+.overlay {
+  transition: 0.4s ease;
+}
+
+.main-container:hover > .overlay {
+  height: 100% !important;
 }
