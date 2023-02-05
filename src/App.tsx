@@ -1,15 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Intro from "./pages/Intro";
+import { lazy, Suspense } from "react";
+import Layout from "./components/layout/layout";
+import Sample from "./pages/Sample";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Lazy Loaded Components
+const Home = lazy(() => import("./pages/Home"));
 
+const App = () => {
   return (
-    <div className="App">
-      <div className='text-xl font-bold text-red-500'>App Works</div>
-    </div>
-  )
-}
+    <>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Intro />} />
+          <Route path="/main" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="sample" element={<Sample />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </>
+  );
+};
 
-export default App
+export default App;
