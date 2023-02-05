@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.insetShadow-r {
+  box-shadow: inset -7px 0 9px -7px #27414d;
+}
+
+.insetShadow-l {
+  box-shadow: inset 7px 0 9px -7px #27414d;
+}
+
+/* .shadow-orange {
+  text-shadow: 0 0 5px #ff652f;
+} */
+
+.shadow-orange {
+  text-shadow: -1px 0 #ff652f, 0 1px #ff652f, 1px 0 #ff652f, 0 -1px #ff652f;
+}
