@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import SecondCard from "./second-card";
 
 interface State {
   left: boolean;
@@ -23,13 +24,7 @@ interface Props {
   setCardState: (val: State) => void;
 }
 
-const MainCard: React.FC<Props> = ({
-  cardState,
-  logo,
-  setCardState,
-  data,
-  secondaryCard,
-}) => {
+const MainCard: React.FC<Props> = ({ cardState, logo, setCardState, data }) => {
   function mouseLeft(val: string) {
     setCardState({
       left: false,
@@ -78,6 +73,9 @@ const MainCard: React.FC<Props> = ({
                 flex flex-col items-center cursor-pointer"
       onMouseEnter={() => mouseEntered(data.position)}
       onMouseLeave={() => mouseLeft(data.position)}
+      onClick={() => {
+        console.log("clicked");
+      }}
     >
       <div className="h-3/6 flex items-center">{logo}</div>
       <div className="h-1/6">
@@ -102,8 +100,15 @@ const MainCard: React.FC<Props> = ({
         </div>
       </div>
       <div
-        className={`absolute w-full flex flex-col items-center cursor-pointer left-0 right-0 overflow-hidden h-0 overlay hover:h-full 
-        bg-primary-${data.title.color} ${
+        className={`absolute w-full flex flex-col items-center cursor-pointer left-0 right-0 overflow-hidden h-0 overlay hover:h-full ${
+          data.position === "left"
+            ? "bg-primary-yellow"
+            : data.position === "mid"
+            ? "bg-primary-orange"
+            : data.position === "right"
+            ? "bg-primary-green"
+            : null
+        } ${
           data.position === "left"
             ? cardState.left
               ? "bottom-0"
@@ -123,7 +128,18 @@ const MainCard: React.FC<Props> = ({
             : null
         }`}
       >
-        test
+        <SecondCard
+          data={{
+            title: {
+              first: data.title.first,
+              second: data.title.second,
+              color: data.title.color,
+            },
+            message: "",
+            link: data.link,
+            position: data.position,
+          }}
+        />
       </div>
     </div>
   );

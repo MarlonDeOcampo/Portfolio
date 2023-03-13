@@ -11,7 +11,9 @@ const Layout: React.FC<Props> = () => {
     <div>
       <main className="flex">
         <Sidebar />
-        <Outlet />
+        <div className="w-[calc(100%-6rem)] ml-[6rem]">
+          <Outlet />
+        </div>
       </main>
       <Footer />
     </div>

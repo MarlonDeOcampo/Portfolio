@@ -21,10 +21,24 @@
 .shadow-green {
   text-shadow: -1px 0 #00ff99, 0 1px #00ff99, 1px 0 #00ff99, 0 -1px #00ff99;
 }
+
+.shadow-slate {
+  text-shadow: 2px 2px 0 #0f172a, 2px -2px 0 #0f172a, -2px 2px 0 #0f172a,
+    -2px -2px 0 #0f172a, 2px 0px 0 #0f172a, 0px 2px 0 #0f172a,
+    -2px 0px 0 #0f172a, 0px -2px 0 #0f172a, 2px 3px 0px rgba(185, 255, 76, 0);
+}
+
 .overlay {
-  transition: 0.4s ease;
+  transition: 0.4s ease-in-out;
 }
 
 .main-container:hover > .overlay {
   height: 100% !important;
+}
+
+.stretched-text {
+  letter-spacing: 2px;
+  display: inline-block;
+  font-size: 50rem;
+  transform: scaleY(0.5);
 }

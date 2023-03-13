@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@react-three/fiber": "^8.10.4",
+    "@reduxjs/toolkit": "^1.9.3",
     "@types/react-router-dom": "^5.3.3",
     "@types/three": "^0.149.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.0",
+    "redux": "^4.2.1",
     "three": "^0.149.0"
   },
   "devDependencies": {

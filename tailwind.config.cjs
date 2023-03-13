@@ -9,6 +9,7 @@ module.exports = {
         "primary-orange": "#ff652f",
         "primary-green": "#00ff99",
         "primary-yellow": "#ffe400",
+        "golden-brown": "#746457",
       },
       fontFamily: {
         display: ["Roboto Condensed", "sans-serif"],

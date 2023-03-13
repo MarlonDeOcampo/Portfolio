@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
+import ComputerLogo from "../svg/computer.icon";
+import LanguageLogo from "../svg/language.icon";
+import ProjectLogo from "../svg/project.icon";
 
 interface Props {
-  logo: ReactNode;
   data: {
     title: {
       first: string;
@@ -14,31 +16,45 @@ interface Props {
   };
 }
 
-const SecondCard: React.FC<Props> = ({ logo, data }) => {
+const SecondCard: React.FC<Props> = ({ data }) => {
   return (
-    <div
-      className="relative main-container insetShadow-l border-r border-slate-900 w-1/3 h-full shadow-inner 
-              flex flex-col items-center justify-center cursor-pointer"
-    >
+    <div className="w-1/3 h-full flex flex-col items-center justify-center cursor-pointer">
       <div className="h-3/6 flex items-center">
-        {/* <LanguageLogo width={"120px"} height={"120px"} color={"#00ff99"} /> */}
-        {logo}
+        {data.position === "left" ? (
+          <ProjectLogo width={"120px"} height={"120px"} color={"#000000"} />
+        ) : null}
+        {data.position === "mid" ? (
+          <ComputerLogo width={"150px"} height={"150px"} color={"#000000"} />
+        ) : null}
+        {data.position === "right" ? (
+          <LanguageLogo width={"120px"} height={"120px"} color={"#000000"} />
+        ) : null}
       </div>
       <div className="h-1/6">
         <div className="h-full flex flex-col justify-between">
-          <div className="h-1/3 shadow-green font-bold text-slate-900 tracking-widest ">
+          <div
+            className={`h-1/3 font-bold tracking-widest shadow-slate ${
+              data.position === "left"
+                ? "text-primary-yellow"
+                : data.position === "mid"
+                ? "text-primary-orange"
+                : data.position === "right"
+                ? "text-primary-green"
+                : null
+            }`}
+          >
             <div>{data.title.first}</div>
             <div>{data.title.second}</div>
           </div>
-          <div className="h-1/3 text-[18px] text-secondary px-32">
+          <div className="h-1/3 text-[18px] text-secondary w-full">
             {data.message}
           </div>
         </div>
       </div>
       <div className="h-2/6 flex items-center">
         <div
-          className={`h-20 text-primary-${data.title.color} 
-          text-[24px] border-solid border-dotted border-b-4 border-primary-${data.title.color} mx-14 mb-14`}
+          className={`h-20 text-black whitespace-nowrap font-bold
+          text-[24px] border-solid border-dotted border-b-4 border-black mx-14 mb-14`}
         >
           {data.link}
         </div>
